@@ -82,7 +82,7 @@ businessRouter.post(
   businessAuthMiddleware,
   async (req, res) => {
     let candidate = [];
-    const { title, description } = req.body;
+    const { title, description,roomCode } = req.body;
     candidate.push(`67965f0752f3723652c33ea2`);
     console.log(req.userId);
     const newJob = await jobModel.create({
@@ -90,6 +90,7 @@ businessRouter.post(
       description,
       creatorId: req.userId,
       candidate,
+      roomCode,
     });
     console.log(newJob);
     res.json({
